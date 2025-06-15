@@ -1,0 +1,48 @@
+/* Importa las fuentes 'Righteous' y 'Work Sans' desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
+*{
+font-family: 'Work Sans';
+}
+
+/* Estilo del contenido principal */
+.content {
+    margin-left: 250px;
+    padding: 30px;
+    background-color: #ffffff;
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Estilo para los títulos dentro del contenido */
+.content h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #ff7f00;
+    font-weight: 700;
+    margin: 20px 0 0 35px;
+}
+
+/* Estilo para los párrafos dentro del contenido */
+.content p {
+    font-size: 1.2rem;
+    color: #687172;
+    line-height: 1.6;
+    margin: 20px 0 0 35px;
+}
+
+span.course-category {
+    font-size: 1rem;
+    color: #687172;
+    line-height: 1.6;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content {
+      margin-left: 0;
+      padding-top: 70px;
+      padding-bottom: 100px;
+    }
+  }

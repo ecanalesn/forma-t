@@ -1,0 +1,107 @@
+/* Estilo general */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+/* Estilo del encabezado */
+.header {
+background-color: #333333;
+color: #ffffff;
+padding: 10px 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+width: 100%;
+}
+
+.header-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+}
+
+.logo {
+font-size: 2rem;
+color: #ff7f00;
+letter-spacing: 1px;
+font-weight: 700;
+}
+
+.name-button {
+  background-color: #ff7f00;
+  color: #ffffff;
+  padding: 7px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  }
+  
+ 
+ .name-button:hover {
+  background-color: #ff5722;
+  color: #333333;
+  }
+
+/* Estilo para las notificaciones de los estudiantes */
+.dropdown-menu {
+  width: 250px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+.notification-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+.notification-item:last-child {
+    border-bottom: none;
+}
+.notification-item p {
+    margin: 0;
+    font-size: 14px;
+}
+.notification-item.accepted {
+    background-color: #e0f7e0;
+}
+.notification-item.rejected {
+    background-color: #f7e0e0; 
+}
+.no-notifications {
+    padding: 10px;
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+}
+
+/* Estilo para la campana de notificaciones */
+.fa-bell {
+  color: #ffffff;
+}
+
+/* Estilo para el contador de notificaciones */
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ff0000;
+    color: #ffffff;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container {
+      flex-direction: column;
+  }
+
+  .name-button, .notification-icon {
+    position: relative; 
+  }
+}
