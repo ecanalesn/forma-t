@@ -9,11 +9,12 @@ class Connection {
 
     // Se crea el método privado para establecer la conexión
     private function connect() {
-        $host = 'localhost';
-        $port = 3306;
-        $dbname = 'format_db';
-        $user = 'root';
-        $password = '';
+        // Usar variables de entorno si están disponibles, sino usar valores por defecto
+        $host = getenv('DB_HOST') ?: 'localhost';
+        $port = getenv('DB_PORT') ?: 3306;
+        $dbname = getenv('DB_NAME') ?: 'format_db';
+        $user = getenv('DB_USER') ?: 'root';
+        $password = getenv('DB_PASSWORD') ?: '';
 
         try {
             $this->conn = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8", $user, $password);

@@ -1,0 +1,44 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos de log
+*.log
+logs/
+
+# Archivos temporales
+tmp/
+temp/
+*.tmp
+
+# Archivos de configuración local
+.env
+.env.local
+.env.production
+
+# Archivos de Docker
+.docker/
+
+# Archivos de node_modules (si usas npm)
+node_modules/
+
+# Archivos de composer (si usas Composer)
+vendor/
+
+# Archivos de cache
+cache/
+*.cache
+
+# Archivos de sesión
+sessions/
+
+# Archivos de upload
+uploads/
