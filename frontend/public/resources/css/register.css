@@ -1,0 +1,16 @@
+/* Estilo común para todos los campos del formulario */
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%; 
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; 
+}
+
+/* Estilo cuando el campo está enfocado */
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}

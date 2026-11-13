@@ -1,0 +1,142 @@
+/* Contenedor principal con el menú lateral y el contenido */
+.layout-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilos para el menú lateral */
+.sidebar {
+    background-color: #ffffff;
+    color: #333333;
+    width: 250px;
+    padding-top: 30px;
+    position: fixed;
+    height: 100%;
+    border-right: 1px solid #ffffff; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para la lista de elementos del menú lateral */
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+    flex-grow: 1;
+    margin-top: 3px; 
+}
+
+/* Estilo para cada ítem del menú lateral */
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+/* Estilo de los enlaces en el menú lateral */
+.sidebar ul li a {
+  color: #333333;
+  text-decoration: none;
+  font-size: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ffffff;
+  transition: background-color 0.3s, border 0.3s;
+  cursor: pointer; 
+}
+
+/* Efecto hover para los enlaces en el menú lateral */
+.sidebar ul li a:hover {
+  background-color: #ff7f00; 
+  border-color: #ff7f00; 
+  color: #ffffff; 
+}
+
+/* Estilo del botón "Salir" */
+.sidebar ul li a.logout {
+    color: #ffffff; 
+    background-color: #ff7f00; 
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s; 
+    box-sizing: border-box; 
+}
+
+/* Efecto hover para el botón "Salir" */
+.sidebar ul li a.logout:hover {
+    background-color: #ff5722; 
+    color: #333333;
+}
+
+.sidebar ul li a.menu-item i{
+  margin-right: 8px;
+}
+
+/* Estilo para el badge de solicitudes del admin */
+.menu-item {
+  position: relative; 
+}
+  
+.badge-custom {
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 0.1em 0.6em;
+    border-radius: 50%;
+    font-size: 1em;
+    font-weight: bold;
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    transform: translateY(-20%); 
+}
+
+/* Menú Hamburguesa */
+.menu-toggle {
+  display: none;
+  background-color: #ff7f00;
+  padding: 6px; 
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  margin-left: 7px;
+  top: 10px;
+  left: 4px;
+  z-index: 100;
+  border-radius: 4px;
+  width: 45px; 
+  height: 35px; 
+}
+  
+.menu-toggle i {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .layout-container {
+    flex-direction: column;
+  }
+
+  .menu-toggle {
+    display: block; 
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0px; 
+    left: -100%; 
+    width: 70%;
+    max-width: 250px;
+    height: 100%;
+    transition: left 0.3s ease-in-out;
+    z-index: 99;
+  }
+
+  .sidebar.active {
+    left: 0; 
+  } 
+}

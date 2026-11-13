@@ -1,0 +1,52 @@
+# Blueprint de Render: API Laravel (Docker) + frontend React (sitio estático).
+# La base de datos es PostgreSQL en Supabase (no se crea aquí).
+#
+# Si Render asigna a algún servicio una URL distinta a la indicada abajo,
+# actualizar FRONTEND_URL (API) y VITE_API_URL (frontend) en el panel.
+
+services:
+  # ── Backend: API REST con Laravel ──────────────────────────────────────
+  - type: web
+    name: forma-t-api
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerContext: ./backend
+    dockerfilePath: ./backend/Dockerfile
+    healthCheckPath: /up
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        sync: false # generar con: php artisan key:generate --show
+      - key: APP_URL
+        value: https://forma-t-api.onrender.com
+      - key: FRONTEND_URL
+        value: https://forma-t.onrender.com
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_URL
+        sync: false # cadena del "Session pooler" de Supabase
+      - key: DB_SSLMODE
+        value: require
+
+  # ── Frontend: React + Vite ─────────────────────────────────────────────
+  - type: web
+    name: forma-t
+    runtime: static
+    buildCommand: cd frontend && npm ci && npm run build
+    staticPublishPath: frontend/dist
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: VITE_API_URL
+        value: https://forma-t-api.onrender.com/api
+    # SPA: todas las rutas sirven index.html (para React Router)
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
